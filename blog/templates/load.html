@@ -1,0 +1,50 @@
+{% extends 'baseejs.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row center">
+                    <h3 class="header center yellow-text text-darken-2">Barra de Carga</h3>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <form class="stetic" ALIGN="center">
+                    <div style="height: 200px; width: 200px;" align="center"><img src="{% static 'img/01.jpg' %}" id="image" width=200 height = 200 ALIGN=right /></div>
+                    <br>
+                    <progress id="bar" value="0" max="100"></progress>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        var images = ["{% static './img/01.jpg' %}","{% static './img/02.jpg' %}","{% static './img/03.jpeg' %}","{% static './img/04.jpg' %}"];
+        var tiempo = setInterval(function(){load();},1000);
+
+        $(document).ready(function(){
+            load();
+        });
+
+        var por = document.getElementById("bar");
+        var img = document.getElementById("image");
+        a = 0;
+        var time = setInterval(load, 50);
+
+        function load(){
+            a ++;
+            por.value = a;
+            if (por.value == 100){
+                a = 0;
+                por.value = a;
+                var i = Math.round(Math.random()*3);
+                img.setAttribute("src",images[i]);
+            }
+        }
+
+    </script>
+    {% endblock %}
+</html>

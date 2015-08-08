@@ -1,0 +1,19 @@
+.stetic{
+}
+
+.stetic input[type='button']:hover{
+	cursor: pointer;	
+}
+
+.stetic input[type='button']{
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 3px #FFBF00;
+    padding: 1px 8px;
+    height: 125px;
+    width: 125px;
+    border-radius: 5px;
+    margin-top: 25%;
+    background: #FE9A2E;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}

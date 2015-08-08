@@ -1,0 +1,38 @@
+.stetic{
+}
+.stetic label{
+    display: block;
+    color: #610B0B;
+}
+.stetic div{
+    margin-bottom: 1px;
+    margin-right: 20%;
+}
+
+.stetic input[type='text'], .stetic textarea{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 2px #FFBF00;
+    margin: 5px 0;
+}
+
+.stetic input[type='text']:focus, .stetic textarea:focus{
+    box-shadow:0 0 0 2px #FE9A2E;
+}
+
+.stetic input[type='button']:hover{
+	cursor: pointer;	
+}
+
+.stetic input[type='button']{
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 3px #FFBF00;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    margin:0 3px;
+    background: #FE9A2E;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Ejercicios</h3>
+            </div>
+        </div>
+        
+		<div class="contenido"><h3>
+            Calculadora: <br><a href="{% url 'app_blog:calc' %}"target=_blank><img src="{% static 'img/calc.png' %}" width=50 height = 50 ></a> <br>
+            Conversor: <br><a href="{% url 'app_blog:conv' %}"target=_blank><img src="{% static 'img/conv.png' %}" width=50 height = 50 ></a> <br>
+            Troll: <br><a href="{% url 'app_blog:troll' %}"target=_blank><img src="{% static 'img/troll.png' %}" width=48 height = 48 ></a> <br>
+            Cronómetro: <br><a href="{% url 'app_blog:cron' %}"target=_blank><img src="{% static 'img/cron.png' %}" width=50 height = 50 ></a> <br>
+            Loading: <br><a href="{% url 'app_blog:load' %}"target=_blank><img src="{% static 'img/load.gif' %}" width=50 height = 50 ></a>
+        </h3></div>
+        {% endblock %}
+	</body>
+</html>

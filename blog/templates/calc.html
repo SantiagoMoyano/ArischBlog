@@ -1,0 +1,86 @@
+{% extends 'baseejs.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Calculadora</h3>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="row center">
+                    <div class="row">
+                        <form class="calculadora col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 offset-l3">
+                                    <div class="card-panel white">
+                                        <input  id="resultado" style="font-size:34px; text-align:right;" value="" type="text" class="validate">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-panel orange col s12 m12 l6 offset-l3">
+                                <br>
+                                <div>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn4" onclick="ejecutar(this)" value="1">1</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn2" onclick="ejecutar(this)" value='2'>2</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn3" onclick="ejecutar(this)" value='3'>3</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btnmas" onclick="ejecutar(this)" value='+'>+</a>
+                                </div>
+                                <br>
+                                <div>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn4" onclick="ejecutar(this)" value="4">4</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn5" onclick="ejecutar(this)" value="5">5</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn6" onclick="ejecutar(this)" value="6">6</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btnmenos" onclick="ejecutar(this)" value="-">-</a>
+                                </div>
+                                <br>
+                                <div>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn7" onclick="ejecutar(this)" value="7">7</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn8" onclick="ejecutar(this)" value="8">8</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn9" onclick="ejecutar(this)" value="9">9</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btnpor" onclick="ejecutar(this)" value="*">*</a>
+                                </div>
+                                <br>
+                                <div>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btnp" onclick="ejecutar(this)" value=".">.</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btn0" onclick="ejecutar(this)" value="0">0</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btne" onclick="ejecutar(this)" value="=">=</a>
+                                    <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" id="btndiv" onclick="ejecutar(this)" value="/">/</a>
+                                </div><br>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        newc = 0;
+
+        function ejecutar(btn) {
+            if (newc==0){
+                botonap = btn.getAttribute("value");
+                val = document.getElementById("resultado").value;
+                if (botonap == "="){
+                    newc = 1
+                    if (val.length!=0){
+                        result = eval(val);
+                        document.getElementById("resultado").setAttribute("value",result);
+                    }
+                }else{ document.getElementById("resultado").setAttribute("value",val+botonap);}            
+            }else{
+                botonap = btn.value;
+                if (botonap != "=" & botonap != "+" & botonap != "-" & botonap != "/" & botonap != "*"){
+                    document.getElementById("resultado").setAttribute("value",botonap);
+                    newc = 0;}
+            }
+        }
+
+    </script>
+    {% endblock %}
+</html>

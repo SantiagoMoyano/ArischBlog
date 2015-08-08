@@ -1,0 +1,53 @@
+.stetic{
+    padding-left: 50px ;
+}
+
+.stetic input[type='text'], .stetic textarea{
+    padding: 7px 6px;
+    width: 120px;
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 2px #FFBF00;
+    margin: 5px 0;
+}
+
+.stetic input[type='text']:focus, .stetic textarea:focus{
+    box-shadow:0 0 0 2px #FE9A2E;
+}
+
+.stetic input[type='button']{
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 3px #FFBF00;
+    padding: 1px 8px;
+    height: 30px;
+    width: 75px;
+    border-radius: 5px;
+    margin:0 3px;
+    background: #FE9A2E;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}
+
+.stetic input[type='button']:hover{
+	cursor: pointer;
+}
+
+.static select[type='button']:focus{
+	box-shadow:0 0 0 2px #FE9A2E;
+}
+
+.stetic input[type='text']:focus{
+	box-shadow:0 0 0 2px #FE9A2E;
+}
+
+.stetic select[type='cbb']:focus{
+	box-shadow:0 0 0 2px #FE9A2E;	
+}
+
+.stetic select[type='cbb']{
+	height: 32.5px;
+	width: 80px;
+	border: 1px solid #FE9A2E;
+   box-shadow:0 0 0 2px #FFBF00;
+   margin-right: 1px;
+   margin-left: 1px;
+}

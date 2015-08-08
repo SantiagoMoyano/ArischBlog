@@ -1,0 +1,135 @@
+{% extends 'baseejs.html' %}
+{% load staticfiles %}
+{% block content %}
+<html>
+    <body>
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Convesor</h3>
+            </div>
+        </div>
+        <div class="container center">
+            <div>
+                <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" onclick="convertir()" id="conv">Convertir</a>
+                <a class="col s3 m3 l3 btn-flat btn-large white-text red waves-effect waves-light" style="font-size:24px;" onclick="borrar(ing,sal)" id="clean">Borrar</a>
+            </div>
+            <div class="section">
+                <div class="row center">
+                    <div align=center> 
+                        <form class='calculadora'>
+                            <div class="row">
+                                <div class="col s16 m6 l6">
+                                    <div class="card-panel orange">
+                                        <input style="font-size:30px; " id="ing" type="text" class="validate">
+                                        <select id="in">
+                                            <option value="dol">Dolar</option>
+                                            <option value="eur">Euro</option>
+                                            <option value="ars">ARS</option>
+                                            <option value="pch">CHI</option>
+                                            <option value="puru">URU</option>
+                                            <option value="real">Real</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col s16 m6 l6">
+                                    <div class="card-panel orange">
+                                        <input style="font-size:30px; " id="sal" type="text" class="validate">
+                                        <select type="cbb" id="out">
+                                            <option value="dol">Dolar</option>
+                                            <option value="eur">Euro</option>
+                                            <option value="ars">ARS</option>
+                                            <option value="pch">CHI</option>
+                                            <option value="puru">URU</option>
+                                            <option value="real">Real</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="stetic">
+                            <h3><u>	Valores de Dólar</u></h3>
+                            <p>		<b>Peso ARG</b>: 0.11188
+                                <br>		<b>Euro</b>: 1.13186
+                                <br>		<b>Peso CHI</b>: 0.00164
+                                <br>		<b>Peso URU</b>: 0.03726
+                                <br>		<b>Real</b>: 0.32914 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script>
+        function borrar(one, two){
+            one.value="";
+            two.value="";
+        }
+
+        function convertir(){
+
+            one = document.getElementById("ing").value;
+            two = document.getElementById("sal").value;
+            trya = document.getElementById("in").value;
+            tryb = document.getElementById("out").value;
+
+            switch(trya){
+                case "dol":
+                    one=one*1;
+                    break;
+                case "eur":
+                    one=one*1.13186;
+                    break;
+                case "ars":
+                    one=one*0.11188;
+                    break;
+                case "pch":
+                    one=one*0.00164;
+                    break;
+                case "puru":
+                    one=one*0.03726;
+                    break;
+                case "real":
+                    one=one*0.32914;
+                    break;
+                default:
+                    break;
+            }
+
+            switch(tryb){
+                case "dol":
+                    two=one/1;
+                    break;
+                case "eur":
+                    two=one/1.13186;
+                    break;
+                case "ars":
+                    two=one/0.11188;
+                    break;
+                case "pch":
+                    two=one/0.00164;
+                    break;
+                case "puru":
+                    two=one/0.03726;
+                    break;
+                case "real":
+                    two=one/0.32914;
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("sal").value=two;
+        }
+
+    </script>
+    {% endblock %}
+</html>
+
+

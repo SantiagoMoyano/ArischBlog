@@ -1,0 +1,46 @@
+.contacto{
+    padding-left: 50px ;
+}
+.contacto label{
+    display: block;
+    color: #610B0B;
+}
+.contacto div{
+    margin-bottom: 10px;
+}
+
+.contacto input[type='text'], .contacto textarea{
+    padding: 7px 6px;
+    width: 294px;
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 2px #FFBF00;
+    margin: 5px 0;
+}
+
+.contacto input[type='text']:focus, .contacto textarea:focus{
+    box-shadow:0 0 0 2px #FE9A2E;
+}
+
+.contacto input[type='submit']{
+    border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 3px #FFBF00;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin:0 110px;
+    background: #FE9A2E;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}
+
+.contacto input[id="avs"]{
+	 border: 1px solid #FE9A2E;
+    box-shadow:0 0 0 3px #FFBF00;
+    padding: 20px 10px;
+    height: 75px;
+    width: 200px;
+    border-radius: 10px;
+    margin:20px 20px;
+    background: #FE9A2E;
+    background: -moz-linear-gradient(top, #e4f1f6 0%, #cfe6ef 100%);
+    background: -webkit-linear-gradient(top, #e4f1f6 0%,#cfe6ef 100%);
+}

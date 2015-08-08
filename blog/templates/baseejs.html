@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicos ArischBlog</title>
+        <link rel = "stylesheet" href = "{% static 'css/style.css' %}"/>
+        <link rel = "stylesheet" href = "{% static 'css/font-awesome.css' %}" />
+        <link href = "{% static 'css/materialize.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <script src= "{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script src= "{% static 'js/init.js' %}"></script>
+        <script src= "{% static 'js/materialize.min.js' %}"></script>
+    </head>
+
+    <body>
+        <nav class="orange darken-4" role="navigation" style="height:85px;">
+            <div><h3 class="text-center" style="color:#FFFFFF;" align="center">Ejercicios ArischBlog</h3></div>
+        </nav>
+        <a class='dropdown-button btn' data-activates='dropdown' style="width:180px;background-color:red;color:#FFFFF;font-size:15px;">Menú</a>
+        <ul style="background-color:#FF4500;" id='dropdown' class='dropdown-content'>
+            <li><a style="color:#FFFFFF;" href="{% url 'app_blog:calc' %}"><i class="fa fa-calculator fa-2x"></i> Calculadora</a></li>
+			<li><a style="color:#FFFFFF;" href="{% url 'app_blog:conv' %}"><i class="fa fa-exchange fa-2x"></i> Conversor</a></li>
+			<li><a style="color:#FFFFFF;" href="{% url 'app_blog:cron' %}"><i class="fa fa-clock-o fa-2x"></i> Cronómetro</a></li>
+			<li><a style="color:#FFFFFF;" href="{% url 'app_blog:load' %}"><i class="fa fa-spinner fa-2x fa-pulse"></i> Barra de Carga</a></li>
+			<li><a style="color:#FFFFFF;" href="{% url 'app_blog:troll' %}"><i class="fa fa-bug fa-2x"></i> Troll</a></li>
+        </ul>
+
+        <br>
+        {% block content %}
+        {% endblock %}
+
+        {% block scripts %}
+        {% endblock %}
+        <br>
+
+        <footer class="page-footer orange darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Agradecimientos:</h5>
+                        <p class="grey-text text-lighten-4" style="font-size:10px;">Gracias a Farkas, Vilkas y Aela que nos tiraron la posta, gracias al Archimago de Hibernalia que flayó mucho, gracias a Mah'iq que se acabó la merca, gracias a Irileth que nos corre de Cuenca del Dragón cuando queremos trabajar o no, gracias a los guardias que se ponen la diez con las observaciones, gracias a Bethesda por embellecer nuestro pobreblogs y sobre todo gracias a Mercer que se lleva el banco.</p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Comandos</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">Hay 2 para 4</a></li>
+                            <li><a class="white-text" href="#!">¿Que hacer?</a></li>
+                            <li><a class="white-text" href="#!">Nosotros nos vamos</a></li>
+                            <li><a class="white-text" href="#!">Que coman-dos</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Contáctanos</h5>
+                        <ul>
+                            <li><a class="white-text" href="www.facebook.com/moyanonews.know"target=_blank><img src="{% static 'img/fb.png' %}" width=20 height=20></a></li>
+                            <li><a class="white-text" href="www.twitter.com/moyanonews.know"target=_blank><img src="{% static 'img/tw.png' %}" width=18 height=18</a></li>
+                            <li><a class="white-text" href="wwww.vine.com/moyanonews.know"target=_blank><img src="{% static 'img/vine.png' %}" width=20 height = 20 </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

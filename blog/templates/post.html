@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 class="section-heading">{{post.titulo}}</h2>                    
+                <h4 class="section-heading">Posted by {{post.autor}}</h4>
+                <h5 class="section-heading">{{post.fecha}}</h5>
+
+                <p>{{post.contenido}} </p>
+                <br>
+                <img class = "image_wrapper fl_image" src="{{post.imagen}}">
+                <br>
+                <a href="{% url 'app_blog:blog' %}" class="btn btn-primary" style="background-color:red;">Atras</a>
+
+            </div>
+        </div>
+    </div>
+</article>
+<div class="row">
+    <h3 class="teal-text text-lighten-2">Comentarios</h3>
+    {% csrf_token %} 
+    <div class="row">
+        <div class="input-field">
+            <input name="nombre" type="text" class="form-control" style="color:white" id="name" required data-validation-required-message="Please enter your name.">
+            <label class="white-text" for="name">Nombre</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field">
+            <textarea name="mensaje" rows="5" class="materialize-textarea" style="color:white" id="message" required data-validation-required-message="Please enter a message."></textarea>
+            <label for="message" class="white-text">Mensaje</label>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="form-group col-xs-12">
+            <button id="send_ajax" class="btn-large btn-primary"> Comment </button>
+        </div>
+    </div> 
+    <div id="mensajes">
+        {% include "mensajes.html" %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    $("#send_ajax").click(function(){        
+
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            id:'{{post.id}}',
+            nombre:$('#name').val(),
+            mensaje:$('#message').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "{% url 'app_blog:save_message' %}",
+            data: data,
+            success: function(result){
+                $("#mensajes").html(result);
+            },
+            error: function(err){
+                console.log("ERRRORRRR");
+                console.log(err.responseText);
+            },
+        });
+    });
+</script>
+
+
+{% endblock %}

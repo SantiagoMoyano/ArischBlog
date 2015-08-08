@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Notice Yourself!</h3>
+            </div>
+        </div>
+        {% for post in posts %}
+        <div class="container">
+            <div class="row center">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class = "image_wrapper fl_image" src="{{post.imagen}}" style="height:200px;">
+                            <span class="card-title">{{post.titulo}}</span>
+                            <br><br>
+                        </div>
+                        <p2>Posted By {{post.autor}} in {{post.fecha}}</p2>
+                        <div class="card-content">
+                            <h4>{{post.resumen}}</h4>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'app_blog:vermipost' post.id %}">Ver Noticia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endblock %}
+
+    </body>
+</html>

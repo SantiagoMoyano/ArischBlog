@@ -1,0 +1,44 @@
+{% extends 'baseejs.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+
+        <form class="stetic" ALIGN=center>
+            <div id="lugar" style="height: 400px; width: 1000px;">     
+                <input type="button" align="center" id="trolling" style="position:relative;" value="Click Me" onmouseover="cambiarPos(this)">
+            </div>
+        </form>
+
+    </body>
+    <script>
+
+        var tired = 0;
+        var audio = new Audio("{% static 'sound/nope.mp3' %}");
+        function cambiarPos(obj) {
+
+            var divobj = document.getElementById('lugar');
+            var x = divobj.offsetHeight + obj.height + 5;
+            var y = divobj.offsetWidth + obj.width + 5;
+
+            var randomx = Math.floor(Math.random()*x+1);
+            var randomy = Math.floor(Math.random()*y+1);
+
+            obj.style.top = randomx + 'px';
+            obj.style.left = randomy + 'px';
+
+            audio.play()
+
+            tired++
+
+            if(tired == 50){
+                alert("¿Cansado?");
+            }
+            if(tired == 100){
+                alert("¡Muy Buena Paciencia!");
+            }
+        }
+
+    </script>
+    {% endblock %}
+</html>

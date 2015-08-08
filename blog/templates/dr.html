@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Currículum</h3>
+            </div>
+        </div>
+
+
+        <div id="index-banner" class="parallax-container" style="height:244px">
+            <div class="section no-pad-bot">
+
+            </div>
+            <div class="parallax"><img src="{% static 'img/photo.jpg' %}" alt="Unsplashed background img 2" style="display: block; transform: translate3d(-50%, 300px, 0px);"></div>
+        </div>
+
+        <div class="contenido">
+
+            <img src="{% static 'img/as.jpg' %}" width=128 height = 128 ALIGN=right />
+
+            <p>
+                <b> Nombre </b> : <p3> MOYANO STAHLSCHMIDT, Santiago Rafael</p3>
+                <br>
+                <b> DNI </b> : <p3> 41 087 636</p3>
+                <br>
+                <b> Fecha de Nacimiento </b> : <p3> 02 de Abril de 1998</p3> 
+                <br>
+                <b> Dirección </b> : <p3> Antártida Argentina 4313</p3> 
+                <br>
+                <b> Antecedentes penales </b> : <p3> Ninguno</p3>
+                <br>
+                <b> Estudios </b> : <br>
+                <p3>Técnico en Programación</br>
+                Licenciado en Ciencias de la Computación</br>
+        Doctor en Ciencias de la Computación</p3>
+    <br>
+    <b> En MNK </b> : <br>
+    <p3>Creó la empresa Moyano & Company News el 2 de Abril de 2007 junto con su Colega George Company, tras su abandono en 2009, la empresa cambió de nombre a Moyano News Know el 7 de Noviembre.</p3>
+    </p>
+</div>
+{% endblock %}
+
+<script>
+    {% block script %}
+    $(document).ready(function(){
+        $('.parallax').parallax();
+    });
+    {% endblock %}
+</script>
+</html>

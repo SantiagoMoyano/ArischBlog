@@ -1,0 +1,160 @@
+{% extends 'baseejs.html' %}
+{% load staticfiles %}
+<html>
+    <body>
+        {% block content %}
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h3 class="header center yellow-text text-darken-2">Cronómetro</h3>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="row center">
+                    <div class="row">
+                        <form class="calculadora col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 offset-l3">
+                                    <div class="card-panel white">
+                                        <input  style="font-size:34px; text-align:right;" id="ing" type="text" value="0 00 00 00" class="validate">
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="start" type="button" value="Iniciar" onclick="inicio()"/>
+                            <input id="pause" type="button" disabled value="Parar" onclick="pausa()"/>
+                            <input id="round" type="button" disabled value="Vuelta" onclick="vuelta()"/>
+                            <input id="clean" type="button" disabled value="Limpiar" onclick="clearall()"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table border="3" style="width:25%" ALIGN="center">
+            <tr>
+                <td width=20px>1</td>
+                <td id="prim" value=0></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td id="seg" value=0></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td id="ter" value=0></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td id="cuar" value=0></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td id="quin" value=0></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td id="sext" value=0></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td id="sept" value=0></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td id="oct" value=0></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td id="nov" value=0></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td id="dec" value=0></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+
+        var aux = 0;
+        var display = document.getElementById("ing");
+
+        function inicio() {
+            fecha = new Date();
+            cron = setInterval(time,10);
+            document.getElementById("pause").disabled=false;
+            document.getElementById("round").disabled=false;
+        }
+
+        function time() { 
+            if (aux == 0){
+                ya = new Date();
+                cron = ya - fecha;	
+                cr = new Date();	
+                cr.setTime(cron);
+                cents = cr.getMilliseconds();	
+                cents = cents/10;	
+                cents = Math.round(cents);
+                seg=cr.getSeconds();	
+                min=cr.getMinutes();
+                hor=cr.getUTCHours();
+
+                if (cents<10) {
+                    cents="0"+cents;
+                } 
+                if (seg<10) {
+                    seg="0"+seg;
+                } 
+                if (min<10) {
+                    min="0"+min;
+                } 
+
+                display.value = (hor+" "+min+" "+seg+" "+cents);
+            }
+        }
+
+        function clearall(){
+            document.location.reload();
+        }
+
+        auxpausa = 0;
+        function pausa(){
+            if(auxpausa == 0){
+                aux = 1;
+                inicio();
+                document.getElementById("start").disabled = true;
+                document.getElementById("round").disabled = true;
+                document.getElementById("clean").disabled = false;
+                document.getElementById("pause").value = "Reiniciar";
+                auxpausa = 1
+            }
+            else{
+                if(auxpausa == 1){
+                    aux = 0;
+                    time();
+                    document.getElementById("round").disabled = false;
+                    document.getElementById("clean").disabled = true;
+                    document.getElementById("pause").value = "Parar";
+                    console.log(aux, auxpausa);
+                    auxpausa = 0;
+                }
+            }
+        }
+
+        var pos = [document.getElementById("prim"),document.getElementById("seg"),document.getElementById("ter"),
+                   document.getElementById("cuar"),document.getElementById("quin"),document.getElementById("sext"),
+                   document.getElementById("sept"),document.getElementById("oct"),document.getElementById("nov"),
+                   document.getElementById("dec")]
+        function vuelta(){
+            vuelt = document.getElementById("ing").value;
+            for (var a=0; a!=10 ;a++){
+                if(pos[a].value == undefined){
+                    pos[a].innerHTML = vuelt;
+                    pos[a].value = 1;
+                    break;
+                }			
+            }		
+        }
+
+    </script>
+    {% endblock %}
+</html>
